@@ -58,7 +58,7 @@ public class MusicLibrary
     public void sortTime(){
         int min;
         Album temp;
-        for(int i = 0; i<albums.length-1; i++){
+        for(int i = 0; i < albums.length-1; i++){
             min = i;
             for(int scan = i+1; scan<albums.length; scan++){
                 if(albums[scan] != null){
@@ -73,6 +73,58 @@ public class MusicLibrary
         }
     }
     public void sortTitle(){
-        
+        int min;
+        Album temp;
+        for(int i = 0; i < albums.length-1; i++){
+            min = i;
+            for(int scan = i+1; scan < albums.length; scan++){
+                if(albums[scan] != null){
+                    String nameCheck = albums[scan].getTitle();
+                    String checkAgainst = albums[min].getTitle();
+                    if(nameCheck.compareTo(checkAgainst) < 0){
+                       min = scan;
+                    }
+                }
+            }
+            temp = albums[min];
+            albums[min] = albums[i];
+            albums[i] = temp;
+        }
+    }
+    public int binarySearchTitle(String target) {
+        int low = 0, high = albums.length-1, middle = (low + high)/2;
+        while (!albums[middle].getTitle().equals(target) && low <= high){ 
+            if (albums[middle].getTitle().compareTo(target) < 0){
+                high = middle - 1; 
+            }
+            else{
+                low = middle + 1;
+            }
+            middle = (low + high)/2;
+        }
+        if (albums[middle].equals(target)){
+            return middle;
+        }
+        else{
+            return -1;
+        }
+    }
+    public int binarySearchTime(int target) {
+        int low = 0, high = albums.length-1, middle = (low + high)/2;
+        while (albums[middle].getTime() != target && low <= high){ 
+            if (target < albums[middle].getTime()){
+                high = middle - 1; 
+            }
+            else{
+                low = middle + 1;
+            }
+            middle = (low + high)/2;
+        }
+        if (albums[middle].getTime() == target){
+            return middle;
+        }
+        else{
+            return -1;
+        }
     }
 }

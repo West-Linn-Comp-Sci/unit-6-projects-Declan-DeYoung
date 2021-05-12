@@ -47,5 +47,35 @@ public class Tester{
         System.out.println("Smallest Coin = " + myPurse.findSmallest());
         System.out.println("Total of Purse = $" + myPurse.getTotal());
 
+  }
+  public static void removeZeros(ArrayList<Integer> list) {
+    for(int i = 0; i < list.size(); i++)
+      if(list.get(i) == 0){
+		    list.remove(i);
+      }
     }
+  }
+  public int countLetters(ArrayList list) {
+  	int sum = 0
+    for(int i = 0; i < list.size(); i++){
+  		String atIndex = list.get(i);
+  		sum += atIndex.length();
     }
+  }
+  public int findPosition(int keyValue, ArrayList<Integer> list){
+    for(int i = 0; i < list.size(); i++){
+      if(list.get(i) == keyValue){
+        return i;
+      }
+    }
+    return -1;
+  }
+  public ArrayList parseIntoArrayList(String input){
+    ArrayList <String> broken = new ArrayList<>();
+    for(int i = 0; i < input.length(); i++){
+      String letter = input.substring(i, i+1);
+      broken.add(letter);
+    }
+    return broken;
+  }
+}

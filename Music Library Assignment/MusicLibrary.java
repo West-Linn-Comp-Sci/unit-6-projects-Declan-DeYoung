@@ -91,26 +91,38 @@ public class MusicLibrary
             albums[i] = temp;
         }
     }
-    public int binarySearchTitle(String target) {
-        int low = 0, high = albums.length-1, middle = (low + high)/2;
-        while (!albums[middle].getTitle().equals(target) && low <= high){ 
-            if (albums[middle].getTitle().compareTo(target) < 0){
+    public String binarySearchTitle(String target) {
+        int i = 0;
+        while(albums[i] != null){
+            i++;
+        }
+        int low = 0, high = i, middle = (low + high)/2;
+        String title = albums[middle].getTitle();
+        System.out.println(title);
+        while (!title.equals(target) && low <= high){ 
+            if (title.compareTo(target) > 0){
                 high = middle - 1; 
             }
             else{
                 low = middle + 1;
             }
             middle = (low + high)/2;
+            title = albums[middle].getTitle();
+            System.out.println(title);
         }
-        if (albums[middle].equals(target)){
-            return middle;
+        if (title.equals(target)){
+            return albums[middle].toString();
         }
         else{
-            return -1;
+            return "This album does not exist";
         }
     }
-    public int binarySearchTime(int target) {
-        int low = 0, high = albums.length-1, middle = (low + high)/2;
+    public String binarySearchTime(int target) {
+        int i = 0;
+        while(albums[i] != null){
+            i++;
+        }
+        int low = 0, high = i, middle = (low + high)/2;
         while (albums[middle].getTime() != target && low <= high){ 
             if (target < albums[middle].getTime()){
                 high = middle - 1; 
@@ -121,10 +133,10 @@ public class MusicLibrary
             middle = (low + high)/2;
         }
         if (albums[middle].getTime() == target){
-            return middle;
+            return albums[middle].toString();
         }
         else{
-            return -1;
+            return "This album does not exist";
         }
     }
 }

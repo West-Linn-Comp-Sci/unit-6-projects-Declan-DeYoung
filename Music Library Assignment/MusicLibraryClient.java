@@ -33,9 +33,13 @@ public class MusicLibraryClient {
         
         myLibrary.sortTime();
         System.out.println(myLibrary);
-
-        System.out.println("+++++++++++++++++++++++++++++++++++++++");
         
+        System.out.println(myLibrary.binarySearchTime(36));
+        
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
+        myLibrary.sortTitle();
+        System.out.println(myLibrary);
+        System.out.println(myLibrary.binarySearchTitle("This Music"));
         
     }
 }

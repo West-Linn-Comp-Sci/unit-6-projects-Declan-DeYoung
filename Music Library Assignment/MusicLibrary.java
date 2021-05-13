@@ -8,6 +8,7 @@
 public class MusicLibrary
 {
     private int count = 0;
+    private double totalTime = 0;
     private Album[] albums;
     int doubled;
     public MusicLibrary(){
@@ -16,8 +17,10 @@ public class MusicLibrary
     public void add(Album newAlbum){
         albums[count] = newAlbum;
         count++;
+        totalTime += newAlbum.getTime();
     }
     public void remove(int index){
+        totalTime -= albums[index].getTime();
         albums[index] = null;
         count--;
     }
@@ -35,9 +38,10 @@ public class MusicLibrary
                 eachAlbum += "There's no album in this slot.\n";
             }
             else if(albums[i] != null){
-                eachAlbum += albums[i].getTitle() + ", " + albums[i].getArtist() + ", " + albums[i].getTracks() + ", " + albums[i].getTime() + "\n";
+                eachAlbum += albums[i].getTitle() + " by " + albums[i].getArtist() + ", " + albums[i].getTracks() + " tracks, " + albums[i].getTime() + " minutes long\n";
             }
         }
+        eachAlbum += "Total playtime: " + totalTime + " minutes\nNumber of albums: " + count + "\n";
         return eachAlbum;
     }
     public String getAlbum(String whichAlbum){

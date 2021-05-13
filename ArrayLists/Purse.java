@@ -1,15 +1,12 @@
-
+import java.util.ArrayList;
 public class Purse { 
-  private ArrayList coins; 
- 
+  private ArrayList<Coin> coins;
   public Purse() { 
-    coins = new ArrayList(); 
+    coins = new ArrayList<Coin>(); 
   }
- 
   public void add(Coin aCoin) { 
     coins.add(aCoin); 
   } 
-
   public double getTotal() { 
     double sum = 0;
     for(int i = 0; i < coins.size(); i++){
@@ -18,9 +15,6 @@ public class Purse {
     }
     return sum;
   } 
- 
-// returns the number of coins in the Purse that matches aCoin 
-// (both myName & myValue) 
   public int count(Coin aCoin) {
     int matching = 0;
     for(int i = 0; i < coins.size(); i++){
@@ -31,16 +25,14 @@ public class Purse {
     }
     return matching;
   } 
- 
-// returns the name of the Coin in the Purse that has the smallest value 
   public String findSmallest(){
     Coin smallest = coins.get(0);
     double min = smallest.getValue();
     for(int i = 1; i < coins.size(); i++){
-      double temp = coins.get(i).getValue;
+      double temp = coins.get(i).getValue();
       if(temp < min){
         min = temp;
-        smallest = coint.get(i);
+        smallest = coins.get(i);
       }
     }
     return smallest.getName();

@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.ArrayList;
 public class Tester{
   public static void main(String[] args) {
@@ -28,10 +29,9 @@ public class Tester{
         System.out.println();
 
         System.out.println("Test FindMin for Personobjects");
-        ArrayList<Person> people = new ArrayList<>(Arrays.asList(new Person(32, "Abe"),
-                new Person(14, "Betty"), new Person(18, "Cris")));
+        ArrayList<Person> people = new ArrayList<>(Arrays.asList(new Person(32, "Abe"), new Person(14, "Betty"), new Person(18, "Cris")));
         System.out.println(people);
-        System.out.println("Expected: BETTY \n Actual: " + findMin(people));
+        System.out.println("Expected: BETTY \n Actual: " + Person.findMin(people));
 
         System.out.println();
 
@@ -49,20 +49,22 @@ public class Tester{
 
   }
   public static void removeZeros(ArrayList<Integer> list) {
-    for(int i = 0; i < list.size(); i++)
-      if(list.get(i) == 0){
-	list.remove(i);
-      }
-    }
-
-  public int countLetters(ArrayList list) {
-  	int sum = 0
     for(int i = 0; i < list.size(); i++){
-  		String atIndex = list.get(i);
-  		sum += atIndex.length();
+      if(list.get(i) == 0){
+      	list.remove(i);
+        i--;
+      	}
     }
   }
-  public int findPosition(int keyValue, ArrayList<Integer> list){
+  public static int countLetters(ArrayList<String> list) {
+    int sum = 0;
+    for(int i = 0; i < list.size(); i++){
+        String atIndex = list.get(i);
+        sum += atIndex.length();
+    }
+    return sum;
+  }
+  public static int findPosition(int keyValue, ArrayList<Integer> list){
     for(int i = 0; i < list.size(); i++){
       if(list.get(i) == keyValue){
         return i;
@@ -70,7 +72,7 @@ public class Tester{
     }
     return -1;
   }
-  public ArrayList parseIntoArrayList(String input){
+  public static ArrayList parseIntoArrayList(String input){
     ArrayList <String> broken = new ArrayList<>();
     for(int i = 0; i < input.length(); i++){
       String letter = input.substring(i, i+1);

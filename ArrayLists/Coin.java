@@ -1,4 +1,3 @@
-
 public class Coin {  
   private double myValue; 
   private String myName; 
@@ -16,7 +15,7 @@ public class Coin {
     String otherName = aCoin.getName();
     double otherMoney = aCoin.getValue();
     boolean isSame = false;
-    if(otherMoney = myValue && otherName = myName){
+    if(otherMoney == myValue && otherName.equals(myName)){
       isSame = true;
     }
     return isSame;

@@ -51,10 +51,10 @@ public class Tester{
   public static void removeZeros(ArrayList<Integer> list) {
     for(int i = 0; i < list.size(); i++)
       if(list.get(i) == 0){
-		    list.remove(i);
+	list.remove(i);
       }
     }
-  }
+
   public int countLetters(ArrayList list) {
   	int sum = 0
     for(int i = 0; i < list.size(); i++){

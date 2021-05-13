@@ -34,7 +34,7 @@ public class Purse {
  
 // returns the name of the Coin in the Purse that has the smallest value 
   public String findSmallest(){
-    Coin smallest = coins.get(0)
+    Coin smallest = coins.get(0);
     double min = smallest.getValue();
     for(int i = 1; i < coins.size(); i++){
       double temp = coins.get(i).getValue;
